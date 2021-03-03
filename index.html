@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="style.css">
+        <link rel='stylesheet' href='style.css'>
     </head>
     <title>Etch-A-Sketch</title>
     <body>
         <h1>Etch-A-Sketch</h1>
-        <div class="container">
+        <div class='container'>
 
         </div>
     </body>
     <script>
+        const container = document.querySelector('.container')
+        let numSquares = 16;
 
+        for(let i = 0; i < Math.pow(numSquares, 2); i++){
+            const div = document.createElement('div');
+            div.classList.add('grid-cell');
+            container.appendChild(div);
+        }
     </script>
 </html>
