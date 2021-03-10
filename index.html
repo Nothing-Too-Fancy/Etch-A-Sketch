@@ -24,5 +24,13 @@
         grid.style.gridTemplateColumns = `repeat(${numSquares}, 1fr)`;
         grid.style.gridTemplateRows = `repeat(${numSquares}, 1fr)`;
 
+        function setCellColor() {
+            const red = Math.random() * 256;
+            const blue = Math.random() * 256;
+            const green = Math.random() * 256;
+            this.style.backgroundColor = `RGB(${red}, ${green}, ${blue})`;
+
+        }
+
     </script>
 </html>
