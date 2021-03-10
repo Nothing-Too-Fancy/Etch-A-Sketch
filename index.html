@@ -19,7 +19,22 @@
     <script>
         const grid = document.querySelector('.grid')
         let numSquares = 16;
-        buildGrid(numSquares);
+        initalize();
+
+        function initalize(){
+            buildGrid(numSquares);
+            const cellList = document.querySelectorAll('.grid-cell');
+            let cellArray = Array.from(cellList);
+            cellArray.forEach(cell => {
+                cell.addEventListener('mouseover', setCellColor);
+            });
+
+            const clear = document.querySelector('.clear');
+            clear.addEventListener('click', clearColor);
+
+            const color = document.querySelector('.grayscale');
+            color.addEventListener('click', toggleColor);
+        }
 
         function buildGrid(gridSize){
             
@@ -38,13 +53,6 @@
             grid.style.gridTemplateRows = `repeat(${numSquares}, 1fr)`;
         }
 
-        
-        const cellList = document.querySelectorAll('.grid-cell');
-        let cellArray = Array.from(cellList);
-        cellArray.forEach(cell => {
-            cell.addEventListener('mouseover', setCellColor);
-        });
-
         function clearColor() {
             const cellList = document.querySelectorAll('.grid-cell');
             let cellArray = Array.from(cellList);
@@ -53,12 +61,21 @@
             });
         }
 
+        function toggleColor() {
+            if (this.textContent === 'Grayscale'){
+                this.textContent = 'RGB';
+            }
+            else {
+                this.textContent = 'Grayscale';
+            }
+        }
+
         function setCellColor() {
             const colorButton = document.querySelector('.grayscale');
-            if (colorButton.textContent === 'Grayscale'){
+            if (colorButton.textContent === 'RGB'){
                 this.style.backgroundColor = 'RGB(0, 0, 0, 0.4)';
             }
-            else if (colorButton.textContent === 'RGB') {
+            else if (colorButton.textContent === 'Grayscale') {
                 const red = Math.random() * 256;
                 const blue = Math.random() * 256;
                 const green = Math.random() * 256;
