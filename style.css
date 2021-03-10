@@ -16,3 +16,16 @@ body {
 .grid-cell {
     border:  1px solid gray;
 }
+
+.buttons button{
+    margin-top: .5em;
+    font-size: 1em;
+}
+
+.clear {
+    margin-right: 1em;
+}
+
+.grayscale {
+    margin-left: 1em;
+}
