@@ -21,6 +21,12 @@
             div.classList.add('grid-cell');
             grid.appendChild(div);
         }
+        const cellList = document.querySelectorAll('.grid-cell');
+        let cellArray = Array.from(cellList);
+        cellArray.forEach(cell => {
+            cell.addEventListener('mouseover', setCellColor);
+        });
+
         grid.style.gridTemplateColumns = `repeat(${numSquares}, 1fr)`;
         grid.style.gridTemplateRows = `repeat(${numSquares}, 1fr)`;
 
